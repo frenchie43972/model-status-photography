@@ -17,6 +17,8 @@ const navLinks: NavLink[] = [
 ];
 
 const Navbar: React.FC = () => {
+  // This function uses NavLink as a parameter that returns a Link component
+  // in order to render the route links dynamically
   const renderNavLink = (link: NavLink) => (
     <Link 
       key={link.title} 
