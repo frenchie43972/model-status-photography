@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <>
     <Navbar />
-      <h1>Welcome, Everything is Fine!</h1>
+      <h1>Everything is Fine!</h1>
     </>
   )
 }
