@@ -1,9 +1,11 @@
-import { useRouter } from "next/router";
+'use client';
+
+import { useParams } from 'next/navigation';
+import { NextPage } from 'next';
 
 
 const GenrePage: React.FC = () => {
-  const router = useRouter();
-  const {genre} = router.query;
+  const {genre} = useParams();
 
   return (
     <div className="container mx-auto p-4">
