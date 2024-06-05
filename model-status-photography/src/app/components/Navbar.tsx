@@ -2,7 +2,8 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
-import { BsTwitterX, BsFacebook, BsInstagram } from "react-icons/bs";
+import { BsFacebook, BsInstagram } from "react-icons/bs";
+import { ImFlickr3 } from "react-icons/im";
 import { useRouter } from "next/navigation";
 
 const genres = [
@@ -48,17 +49,29 @@ const Navbar: React.FC = () => {
         <div className='text-2xl flex items-center'>
           <ul className='mx-auto flex items-center space-x-[150px]'>
               <li>
-                <Link href='#'>
+                <Link 
+                  href='https://www.instagram.com/planet_jyro/'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <BsInstagram />
                 </Link>
               </li>
               <li>
-                <Link href='#'>
-                  <BsTwitterX />
+                <Link 
+                  href='https://www.flickr.com/photos/planetjyro/with/6911298534'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ImFlickr3 />
                 </Link>
               </li>
               <li>
-                <Link href="https://www.facebook.com/pjay.wyche">
+                <Link 
+                  href="https://www.facebook.com/pjay.wyche"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <BsFacebook />
                 </Link>
               </li>
