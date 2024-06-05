@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
           <ul className='mx-auto flex items-center space-x-[150px]'>
               <li>
                 <Link 
-                  href='https://www.instagram.com/planet_jyro/'
+                  href='https://www.instagram.com/model_status_photos/'
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <Link 
-                  href="https://www.facebook.com/pjay.wyche"
+                  href="https://www.facebook.com/modelstausphotography"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
