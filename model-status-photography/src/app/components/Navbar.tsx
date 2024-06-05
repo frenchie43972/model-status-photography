@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const genres = [
   {name: 'Family', path: '/genres/family'},
@@ -11,9 +12,30 @@ const genres = [
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const router = useRouter();
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const toggleMenu = (): void => {
     setIsOpen(!isOpen);
+  };
+
+  const handleMouseEnter = (): void => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = (): void => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 1000)
+  };
+
+  const handleRouteClick = (path: string): void => {
+    setIsDropdownOpen(false);
+    router.push(path);
   };
 
   return (
@@ -40,17 +62,27 @@ const Navbar: React.FC = () => {
           <li>
             <Link href='/'>Home</Link>
           </li>
-          <li className="relative group md:mx-4 my-2 md:my-0">
-            <a href='#'>Categories</a>
-            <ul className='absolute hidden group-hover:block mt-2'>
+          <li 
+            className="relative group md:mx-4 my-2 md:my-0"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <a href='#' role="menu">Categories</a>
+            <ul 
+              className={`absolute mt-2 ${isDropdownOpen ? 'block' : 'hidden'}`}
+              role="menuItem"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               {genres.map((genre) => (
                 <li key={genre.name} className='px-4 py-2'>
-                  <Link href={genre.path}>{genre.name}</Link>
+                  <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
+                    {genre.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </li>
-          
         </ul>
       </div>
     </nav>

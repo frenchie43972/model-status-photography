@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import { NextPage } from 'next';
 
 
-const GenrePage: React.FC = () => {
+const GenrePage: NextPage = () => {
   const {genre} = useParams();
 
   return (
