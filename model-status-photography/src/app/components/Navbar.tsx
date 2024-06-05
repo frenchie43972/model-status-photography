@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { BsTwitterX, BsFacebook, BsInstagram } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 
 const genres = [
@@ -41,19 +42,27 @@ const Navbar: React.FC = () => {
   return (
     <nav className=' p-4'>
       <div className='container mx-auto flex justify-between items-center'>
-        <div className='text-2xl md:flex md:items-center '>
-          <Link className='mr-16' href='/'>Home</Link>
-          <ul>
-            <li>
-              <i className='fab fa-instagram'>Instagram Icon</i>
-            </li>
-            <li>
-              <i className='fab fa-twitter'>Twitter Icon</i>
-            </li>
-            <li>
-              <i className='fab fa-facebook'>Facebook Icon</i>
-            </li>
-          </ul>
+        <div className='text-2xl flex items-center'>
+          <Link className='mx-auto' href='/'>Home</Link>
+        </div>
+        <div className='text-2xl flex items-center'>
+          <ul className='mx-auto flex items-center space-x-[150px]'>
+              <li>
+                <Link href='#'>
+                  <BsInstagram />
+                </Link>
+              </li>
+              <li>
+                <Link href='#'>
+                  <BsTwitterX />
+                </Link>
+              </li>
+              <li>
+                <Link href="https://www.facebook.com/pjay.wyche">
+                  <BsFacebook />
+                </Link>
+              </li>
+            </ul>
         </div>
         <div className='md:hidden' onClick={toggleMenu}>
           <i className={isOpen ? 'fa fa-times' : 'fa fa-bars'}>icon</i>
