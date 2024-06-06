@@ -42,45 +42,45 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className='p-4'>
-      <div className='container mx-auto flex justify-between items-center'>
+      <div className='container mx-auto flex flex-wrap justify-between items-center'>
         <div className='text-2xl flex items-center'>
           <Link className='mr-4' href='/'>Home</Link>
         </div>
         <div className='flex items-center space-x-4'>
           <ul className='flex text-2xl items-center space-x-4 md:space-x-[150px]'>
-              <li>
-                <Link 
-                  href='https://www.instagram.com/model_status_photos/'
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsInstagram />
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href='https://www.flickr.com/photos/planetjyro/with/6911298534'
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ImFlickr3 />
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="https://www.facebook.com/modelstausphotography"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <BsFacebook />
-                </Link>
-              </li>
-            </ul>
+            <li>
+              <Link 
+                href='https://www.instagram.com/model_status_photos/'
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsInstagram />
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href='https://www.flickr.com/photos/planetjyro/with/6911298534'
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImFlickr3 />
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="https://www.facebook.com/modelstausphotography"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsFacebook />
+              </Link>
+            </li>
+          </ul>
         </div>
         <div className='md:hidden' onClick={toggleMenu}>
           <i className={isOpen ? 'fa fa-times' : 'fa fa-bars'}></i>
         </div>
-        <ul className={`flex flex-col md:flex md:items-center ${isOpen ? 'block' : 'hidden'} md:block`}>
+        <ul className={`flex flex-col md:flex-row md:items-center ${isOpen ? 'block' : 'hidden'} md:flex`}>
           <li 
             className="relative group md:mx-4 my-2 md:my-0"
             onMouseEnter={handleMouseEnter}
@@ -105,6 +105,7 @@ const Navbar: React.FC = () => {
         </ul>
       </div>
     </nav>
+
   );
 }
 
