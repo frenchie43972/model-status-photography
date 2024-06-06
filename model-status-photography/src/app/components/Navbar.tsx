@@ -41,13 +41,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className=' p-4'>
+    <nav className='p-4'>
       <div className='container mx-auto flex justify-between items-center'>
         <div className='text-2xl flex items-center'>
-          <Link className='mx-auto' href='/'>Home</Link>
+          <Link className='mr-4' href='/'>Home</Link>
         </div>
-        <div className='text-2xl flex items-center'>
-          <ul className='mx-auto flex items-center space-x-[150px]'>
+        <div className='flex items-center space-x-4'>
+          <ul className='flex text-2xl items-center space-x-4 md:space-x-[150px]'>
               <li>
                 <Link 
                   href='https://www.instagram.com/model_status_photos/'
@@ -78,12 +78,9 @@ const Navbar: React.FC = () => {
             </ul>
         </div>
         <div className='md:hidden' onClick={toggleMenu}>
-          <i className={isOpen ? 'fa fa-times' : 'fa fa-bars'}>icon</i>
+          <i className={isOpen ? 'fa fa-times' : 'fa fa-bars'}></i>
         </div>
-        <ul className={`md:flex md:items-center ${isOpen ? 'block' : 'hidden'} md:block`}>
-          <li>
-            <Link href='/'>Home</Link>
-          </li>
+        <ul className={`flex flex-col md:flex md:items-center ${isOpen ? 'block' : 'hidden'} md:block`}>
           <li 
             className="relative group md:mx-4 my-2 md:my-0"
             onMouseEnter={handleMouseEnter}
@@ -97,7 +94,7 @@ const Navbar: React.FC = () => {
               onMouseLeave={handleMouseLeave}
             >
               {genres.map((genre) => (
-                <li key={genre.name} className='px-4 py-2'>
+                <li key={genre.name} className='px-4 py-2 md:p-0'>
                   <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
                     {genre.name}
                   </Link>

@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── api/
+│   │   └── contact/
+│   │       └── route.ts **DELETED for NOW**
+│   ├── genres/
+│   │   └── [genre]/
+│   │       └── page.tsx
+│   └── components/
+│       └── Navbar.tsx
 
-## Getting Started
 
-First, run the development server:
+Let's have a conversation with you acting as a senior freelance web developer and me being new to development working on a pro bono site for someone. I will provide details as soon as you are ready and understand your role .
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Portfolio Site Component Plan - Use to reference the GPT Chat
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Summary of Components
+- Card Component: Ensures all photos are uniform in size across the site.
+- Modal Component: Allows users to click on photos to view larger versions and scroll through the library.
+- Button Component: Holds various styles of buttons for consistent design.
+- Gallery Grid Component: Organizes photo cards into a responsive gallery layout.
+- Contact Form Component: Modular component for the contact form.
+- Header Component: Displays titles, breadcrumbs, or other relevant information for individual pages.
+- Footer Component: Contains site-wide information like contact details, social media links, and copyright information.
+- Hero Component: Large banner or hero section for the homepage.
+- About Section Component: Displays information about the photographer, their bio, and other relevant details.
