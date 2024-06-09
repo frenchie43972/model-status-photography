@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { ImFlickr3 } from "react-icons/im";
@@ -40,19 +40,28 @@ const Navbar: React.FC = () => {
     router.push(path);
   };
 
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <nav className='p-4'>
-      <div className='container mx-auto flex flex-wrap justify-between items-center'>
+      <div className='container mx-auto max-w-screen-2xl flex flex-wrap justify-between items-center'>
         <div className='text-2xl flex items-center'>
           <Link className='mr-4' href='/'>Home</Link>
         </div>
         <div className='flex items-center space-x-4'>
-          <ul className='flex text-2xl items-center space-x-4 md:space-x-[150px]'>
+          <ul className='flex text-2xl items-center space-x-4 md:space-x-20'>
             <li>
               <Link 
                 href='https://www.instagram.com/model_status_photos/'
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
                 <BsInstagram />
               </Link>
@@ -62,6 +71,7 @@ const Navbar: React.FC = () => {
                 href='https://www.flickr.com/photos/planetjyro/with/6911298534'
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Flickr"
               >
                 <ImFlickr3 />
               </Link>
@@ -71,30 +81,52 @@ const Navbar: React.FC = () => {
                 href="https://www.facebook.com/modelstausphotography"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
               >
                 <BsFacebook />
               </Link>
             </li>
           </ul>
         </div>
-        <div className='md:hidden' onClick={toggleMenu}>
-          <i className={isOpen ? 'fa fa-times' : 'fa fa-bars'}></i>
+         <div className='md:hidden'>
+          <button onClick={toggleMenu} className="text-2xl">
+            ☰
+          </button>
         </div>
-        <ul className={`flex flex-col md:flex-row md:items-center ${isOpen ? 'block' : 'hidden'} md:flex`}>
-          <li 
-            className="relative group md:mx-4 my-2 md:my-0"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <a href='#' role="menu">Categories</a>
-            <ul 
-              className={`absolute mt-2 ${isDropdownOpen ? 'block' : 'hidden'}`}
+        <ul className={`absolute md:relative flex-col md:flex-row md:items-center ${isOpen ? 'flex' : 'hidden'}  md:flex md:space-x-4 right-0 mt-4 md:mt-0 w-full md:w-auto`}>
+          <li className="block md:hidden my-2">
+            <Link href='https://www.instagram.com/model_status_photos/' target="_blank" rel="noopener noreferrer" aria-label="Instagram" onClick={toggleMenu}>
+              Instagram
+            </Link>
+          </li>
+          <li className="block md:hidden my-2">
+            <Link href='https://www.flickr.com/photos/planetjyro/with/6911298534' target="_blank" rel="noopener noreferrer" aria-label="Flickr" onClick={toggleMenu}>
+              Flickr
+            </Link>
+          </li>
+          <li className="block md:hidden my-2">
+            <Link href='https://www.facebook.com/modelstausphotography' target="_blank" rel="noopener noreferrer" aria-label="Facebook" onClick={toggleMenu}>
+              Facebook
+            </Link>
+          </li>
+          <li className="relative group md:mx-4 my-2 md:my-0">
+            <a
+              href='#'
+              role="menu"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="cursor-pointer hidden md:block"
+            >
+              Categories
+            </a>
+            <ul
+              className={`absolute mt-2 rounded-md ${isDropdownOpen ? 'block' : 'hidden'}`}
               role="menuItem"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               {genres.map((genre) => (
-                <li key={genre.name} className='px-4 py-2 md:p-0'>
+                <li key={genre.name} className='px-4 py-2'>
                   <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
                     {genre.name}
                   </Link>
@@ -102,11 +134,30 @@ const Navbar: React.FC = () => {
               ))}
             </ul>
           </li>
+          {isOpen && (
+            <li className="block md:hidden my-2">
+              <a href='#' role="menu" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                Categories
+              </a>
+              {isDropdownOpen && (
+                <ul className="mt-2 rounded-md">
+                  {genres.map((genre) => (
+                    <li key={genre.name} className='px-4 py-2'>
+                      <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
+                        {genre.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          )}
         </ul>
       </div>
     </nav>
-
   );
 }
+
+
 
 export default Navbar;
