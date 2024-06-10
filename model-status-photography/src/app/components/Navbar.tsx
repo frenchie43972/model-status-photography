@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className='p-4'>
-      <div className='container mx-auto max-w-screen-2xl flex flex-wrap justify-between items-center'>
+      <div className='container mx-auto max-w-screen-2xl flex justify-between items-center'>
         <div className='text-2xl flex items-center'>
           <Link className='mr-4' href='/'>Home</Link>
         </div>
@@ -88,26 +88,22 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
         </div>
-         <div className='md:hidden'>
+        <div className='md:hidden'>
           <button onClick={toggleMenu} className="text-2xl">
             ☰
           </button>
         </div>
-        <ul className={`absolute md:relative flex-col md:flex-row md:items-center ${isOpen ? 'flex' : 'hidden'}  md:flex md:space-x-4 right-0 mt-4 md:mt-0 w-full md:w-auto`}>
+        <ul className={`flex-col md:flex-row md:items-center ${isOpen ? 'flex' : 'hidden'} md:flex md:space-x-4 mt-4 md:mt-0 w-full md:w-auto`}>
           <li className="block md:hidden my-2">
-            <Link href='https://www.instagram.com/model_status_photos/' target="_blank" rel="noopener noreferrer" aria-label="Instagram" onClick={toggleMenu}>
-              Instagram
-            </Link>
-          </li>
-          <li className="block md:hidden my-2">
-            <Link href='https://www.flickr.com/photos/planetjyro/with/6911298534' target="_blank" rel="noopener noreferrer" aria-label="Flickr" onClick={toggleMenu}>
-              Flickr
-            </Link>
-          </li>
-          <li className="block md:hidden my-2">
-            <Link href='https://www.facebook.com/modelstausphotography' target="_blank" rel="noopener noreferrer" aria-label="Facebook" onClick={toggleMenu}>
-              Facebook
-            </Link>
+            <ul className="mt-2 rounded-md">
+              {genres.map((genre) => (
+                <li key={genre.name} className='px-4 py-2'>
+                  <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
+                    {genre.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </li>
           <li className="relative group md:mx-4 my-2 md:my-0">
             <a
@@ -134,30 +130,10 @@ const Navbar: React.FC = () => {
               ))}
             </ul>
           </li>
-          {isOpen && (
-            <li className="block md:hidden my-2">
-              <a href='#' role="menu" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                Categories
-              </a>
-              {isDropdownOpen && (
-                <ul className="mt-2 rounded-md">
-                  {genres.map((genre) => (
-                    <li key={genre.name} className='px-4 py-2'>
-                      <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
-                        {genre.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          )}
         </ul>
       </div>
     </nav>
   );
 }
-
-
 
 export default Navbar;
