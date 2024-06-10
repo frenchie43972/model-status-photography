@@ -26,3 +26,4 @@ Summary of Components
 - Footer Component: Contains site-wide information like contact details, social media links, and copyright information.
 - Hero Component: Large banner or hero section for the homepage.
 - About Section Component: Displays information about the photographer, their bio, and other relevant details.
+

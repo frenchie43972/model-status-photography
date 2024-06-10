@@ -88,35 +88,34 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className='md:hidden'>
+        <div className='md:hidden relative'>
           <button onClick={toggleMenu} className="text-2xl">
             ☰
           </button>
+          {/* Updated positioning of genres list */}
+          <ul className={` left-0 mt-2 w-full rounded-md ${isOpen ? 'block' : 'hidden'}`}>
+            {genres.map((genre) => (
+              <li key={genre.name} className='px-4 py-2'>
+                <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
+                  {genre.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className={`flex-col md:flex-row md:items-center ${isOpen ? 'flex' : 'hidden'} md:flex md:space-x-4 mt-4 md:mt-0 w-full md:w-auto`}>
-          <li className="block md:hidden my-2">
-            <ul className="mt-2 rounded-md">
-              {genres.map((genre) => (
-                <li key={genre.name} className='px-4 py-2'>
-                  <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
-                    {genre.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
+        <ul className={`hidden md:flex md:flex-row md:items-center md:space-x-4 mt-4 md:mt-0 w-full md:w-auto`}>
           <li className="relative group md:mx-4 my-2 md:my-0">
             <a
               href='#'
               role="menu"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="cursor-pointer hidden md:block"
+              className="cursor-pointer"
             >
               Categories
             </a>
             <ul
-              className={`absolute mt-2 rounded-md ${isDropdownOpen ? 'block' : 'hidden'}`}
+              className={`absolute mt-2 rounded-md  ${isDropdownOpen ? 'block' : 'hidden'}`}
               role="menuItem"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
