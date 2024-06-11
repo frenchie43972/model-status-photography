@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className='p-4'>
-      <div className='container mx-auto max-w-screen-2xl flex justify-between items-center'>
+      <div className='container mx-auto max-w-full flex justify-between items-center'>
         <div className='text-2xl flex items-center'>
           <Link className='mr-4' href='/'>Home</Link>
         </div>
@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
               onMouseLeave={handleMouseLeave}
               className="cursor-pointer"
             >
-              Categories
+              Photo Galleries
             </a>
             <ul
               className={`absolute mt-2 rounded-md  ${isDropdownOpen ? 'block' : 'hidden'}`}
