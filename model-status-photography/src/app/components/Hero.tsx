@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative w-full h-screen flex justify-center items-center">
-      <div className="relative  w-4/5 h-3/5">
+      <div className="relative w-4/5 h-3/5 overflow-hidden">
         {images.map((image, index) => (
           <div
             key={index}
@@ -31,10 +31,9 @@ const Hero: React.FC = () => {
             <Image 
               src={image.src} 
               alt={image.alt} 
-              // width={3000}
-              // height={2000}
               fill
               style={{
+                objectFit: 'contain',
                 width: '100%',
                 height: '100%'
               }}
