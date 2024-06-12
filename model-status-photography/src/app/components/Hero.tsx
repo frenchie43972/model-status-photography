@@ -18,6 +18,8 @@ const Hero: React.FC = () => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   return (
