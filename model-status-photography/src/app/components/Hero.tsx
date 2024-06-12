@@ -21,8 +21,8 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-screen flex justify-center items-center">
-      <div className="relative w-5/6 h-4/5 ">
+    <div className="relative flex justify-center items-center">
+      <div className="relative mx-10 my-6 w-full h-screen ">
         {images.map((image, index) => (
           <div
             key={index}
@@ -34,8 +34,6 @@ const Hero: React.FC = () => {
               fill
               style={{
                 objectFit: 'contain',
-                width: '100%',
-                height: '100%'
               }}
               className="rounded-ld"
             />
