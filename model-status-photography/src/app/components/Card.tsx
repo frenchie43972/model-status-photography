@@ -10,7 +10,8 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
   return (
     <div className="relative w-full h-full bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-      <div className="relative w-full h-48">
+      <div 
+        className="relative w-full h-96">
         <Image 
           src={src}
           alt={alt}
@@ -21,6 +22,7 @@ const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
           className="rounded-t-lg"
         />
       </div>
+     
       <div className="p-4">
         {title && <h3 className="text-lg font-semibold">{title}</h3>}
         {description && <p className="mt-2 text-sm text-gray-600">{description}</p>}

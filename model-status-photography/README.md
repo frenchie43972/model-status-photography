@@ -9,7 +9,24 @@ src/
 │   │   └── [genre]/
 │   │       └── page.tsx
 │   └── components/
-│       └── Navbar.tsx
+│       ├── Navbar.tsx
+│       ├── Hero.tsx
+│       ├── Card.tsx
+│       └── GalleryGrid.tsx
+│   
+├── styles/
+│   ├── globals.css
+│   ├── Hero.module.css (if specific styling for Hero component)
+│   ├── Card.module.css (if specific styling for Card component)
+│
+├── public/
+│   ├── images/
+│   │   ├── skater.jpg
+│   │   ├── love_love.jpg
+│   │   ├── maternity.jpg
+│   │   ├── morgan_burlesque.jpg
+│   │   └── avante_s.jpg
+│   
 
 
 Let's have a conversation with you acting as a senior freelance web developer and me being new to development working on a pro bono site for someone. I will provide details as soon as you are ready and understand your role .
