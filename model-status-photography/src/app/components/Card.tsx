@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
      
       <div className="p-4">
         {title && <h3 className="text-lg font-semibold">{title}</h3>}
-        {description && <p className="mt-2 text-sm text-gray-600">{description}</p>}
+        {description && <p className="mt-2 items-center text-sm text-gray-600">{description}</p>}
       </div>
     </div>
   );
