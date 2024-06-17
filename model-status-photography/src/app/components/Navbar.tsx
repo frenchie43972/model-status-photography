@@ -92,8 +92,7 @@ const Navbar: React.FC = () => {
           <button onClick={toggleMenu} className="text-2xl">
             ☰
           </button>
-          {/* Updated positioning of genres list */}
-          <ul className={` left-0 mt-2 w-full rounded-md ${isOpen ? 'block' : 'hidden'}`}>
+          <ul className={`absolute left-0 mt-2 w-full rounded-md z-50 ${isOpen ? 'block' : 'hidden'}`}>
             {genres.map((genre) => (
               <li key={genre.name} className='px-4 py-2'>
                 <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
@@ -115,7 +114,7 @@ const Navbar: React.FC = () => {
               Photo Galleries
             </a>
             <ul
-              className={`absolute mt-2 rounded-md  ${isDropdownOpen ? 'block' : 'hidden'}`}
+              className={`absolute mt-2 rounded-md z-50 ${isDropdownOpen ? 'block' : 'hidden'}`}
               role="menuItem"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
