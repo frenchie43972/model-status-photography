@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
           <button onClick={toggleMenu} className="text-2xl">
             ☰
           </button>
-          <ul className={`absolute left-0 right-0 mt-2 w-full rounded-md z-50 ${isOpen ? 'block' : 'hidden'}`}>
+          <ul className={`absolute text-sm right-14 mt-2 w-full rounded-md z-50 ${isOpen ? 'block' : 'hidden'}`}>
             {genres.map((genre) => (
               <li key={genre.name} className='px-4 py-2'>
                 <Link href={genre.path} onClick={() => handleRouteClick(genre.path)}>
