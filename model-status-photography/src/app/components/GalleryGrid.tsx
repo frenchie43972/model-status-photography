@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Card from "./Card";
+import Modal from "./Modal";
 
 const photos = [
     {src: '/images/skater.jpg', alt: 'Male Skater', title: 'Skater', description: 'A skater in action'},
@@ -9,20 +11,41 @@ const photos = [
 ];
 
 const GalleryGrid: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openModal = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        {photos.map((photo, index) => (
-          <Card 
-            key={index}
-            src={photo.src}
-            alt={photo.alt}
-            title={photo.title}
-            description={photo.description}
-          />
-        ))}
+    <>
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {photos.map((photo, index) => (
+            <div key={index} onClick={() => openModal(index)}>
+              <Card 
+                src={photo.src}
+                alt={photo.alt}
+                title={photo.title}
+                description={photo.description}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+      <Modal 
+        images={photos}
+        currentImageIndex={currentImageIndex}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
+    </>
   );
 };
 
