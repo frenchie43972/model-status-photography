@@ -3,11 +3,11 @@ import Image from "next/image";
 interface CardProps {
   src: string;
   alt: string;
-  title?: string;
+  // title?: string;
   description?: string;
 }
 
-const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
+const Card: React.FC<CardProps> = ({src, alt, description}) => {
   return (
     <div className="relative  bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
       <div 
@@ -23,10 +23,9 @@ const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
         />
       </div>
      
-      <div className="p-4">
-        {title && <h3 className="text-lg font-semibold">{title}</h3>}
+      {/* <div className="p-4">
         {description && <p className="mt-2 items-center text-sm text-gray-600">{description}</p>}
-      </div>
+      </div> */}
     </div>
   );
 };
