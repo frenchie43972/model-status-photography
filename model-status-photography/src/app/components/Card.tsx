@@ -9,9 +9,9 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
   return (
-    <div className="relative w-full h-full bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+    <div className="relative  bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105">
       <div 
-        className="relative w-full h-96">
+        className="relative w-full h-0 pb-[75%]">
         <Image 
           src={src}
           alt={alt}
@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({src, alt, title, description}) => {
           style={{
             objectFit: 'cover',
           }}
-          className="rounded-t-lg"
+          className="absolute inset-0 rounded-t-lg"
         />
       </div>
      
