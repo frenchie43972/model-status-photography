@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({images, currentImageIndex, isOpen, onClose
 
   return (
     <div className="fixed inset-0 bg-white bg-opacity-70 flex items-center justify-center z-50">
-      <div ref={modalRef} className="relative max-w-4xl w-full px-12 py-8 rounded-lg shadow-lg flex">
+      <div ref={modalRef} className="relative max-w-4xl bg-slate-600 w-full px-12 py-8 rounded-lg shadow-lg flex">
         <button onClick={onClose} className="absolute top-4 right-4 text-3xl z-10">
           <AiOutlineClose/>
         </button>
